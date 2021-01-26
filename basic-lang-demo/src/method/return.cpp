@@ -8,6 +8,7 @@ class ReturnObj
 public:
     ReturnObj();
     ReturnObj(std::string name);
+    ~ReturnObj();
     std::string get_name()
     {
         return this->name;
@@ -25,6 +26,11 @@ ReturnObj::ReturnObj()
 ReturnObj::ReturnObj(std::string name)
 {
     this->name = name;
+}
+
+ReturnObj::~ReturnObj()
+{
+   std::cout<<"bye~: "<<this<<std::endl;
 }
 
 ReturnObj &return_ref()
@@ -84,6 +90,7 @@ int main()
     ReturnObj &ref = return_ref();
     std::cout << "ptr(out) = " << &ref << std::endl;
     std::cout << "name(out) = " << ref.get_name() << std::endl;
+    delete &ref;
 
     std::cout << "==========return_obj===============" << std::endl;
     ReturnObj obj1 = return_obj();
@@ -95,7 +102,7 @@ int main()
     std::cout << "name(out) = " << obj2.get_name() << std::endl;
 
     std::cout << "==========return_local_ref===============" << std::endl;
-    ReturnObj &local_ref = return_local_ref();// 由于返回了临时对象，在调用结束后，这个临时对象会被释放，但是这个引用却被返回了，那么结果就是这个引用指向了一块不知道是什么的内存
+    ReturnObj &local_ref = return_local_ref();// 由于返回了临时对象，在调用结束后，这个临时对象会被释放，可以看到局部对象被释放了，但是这个引用却被返回了，那么结果就是这个引用指向了一块不知道是什么的内存
     std::cout << "ptr(out) = " << &local_ref << std::endl;
     std::cout << "(broken)name(out) = " << local_ref.get_name() << std::endl;
 

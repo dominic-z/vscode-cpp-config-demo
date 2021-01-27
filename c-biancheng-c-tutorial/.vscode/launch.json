@@ -8,19 +8,19 @@
             "name": "c/c++ Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "program": "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out", // 到哪个路径找编译后的文件
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true,
+            "externalConsole": false,
             "MIMode": "lldb",
-            "preLaunchTask": "build c++",
-            "logging": {
-                "trace": true,
-                "traceResponse": true,
-                "engineLogging": true
-            }
+            "preLaunchTask": "build single c",// 依赖哪个task
+            // "logging": {
+            //     "trace": true,
+            //     "traceResponse": true,
+            //     "engineLogging": true
+            // }
         }
     ]
 }

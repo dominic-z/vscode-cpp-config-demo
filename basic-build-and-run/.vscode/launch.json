@@ -8,19 +8,19 @@
             "name": "c/c++ Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.out",
+            "program": "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out", // 到哪个路径找编译后的文件
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": true,
+            "externalConsole": false, // 不要使用外部的终端，我使用外部终端会报错
             "MIMode": "lldb",
-            "preLaunchTask": "build c++",
-            "logging": {
-                "trace": true,
-                "traceResponse": true,
-                "engineLogging": true
-            }
+            "preLaunchTask": "build all c++",// 依赖哪个task 执行debug之前会执行这个build all c++task 该文件是用来配置Run->start Debuging
+            // "logging": {
+            //     "trace": true,
+            //     "traceResponse": true,
+            //     "engineLogging": true
+            // }
         }
     ]
 }

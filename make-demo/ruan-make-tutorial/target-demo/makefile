@@ -1,0 +1,2 @@
+clean:
+	rm clean.txt

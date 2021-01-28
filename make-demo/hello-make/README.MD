@@ -1,0 +1,1 @@
+[【译】一个简单的 make & makefile 教程](https://zhuanlan.zhihu.com/p/92010728)

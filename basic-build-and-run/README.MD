@@ -11,3 +11,6 @@ g++ -c func1/bar.cpp -o ../out/bar.out
 g++ ../out/foo.out ../out/bar.out -o ../out/out.out # 链接
 ../out/out.out 
 ```
+
+# 生效逻辑
+bar.cpp引入了foo.h的声明部分（使用相对路径和绝对路径都可以），但是编译的时候要把bar.cpp和foo.cpp在一起编译，这样才能将定义链接到声明上。

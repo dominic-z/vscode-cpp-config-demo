@@ -24,3 +24,14 @@ gcc out/src/c-biancheng/c-tutorial/chapter15/sec1/main.o out/src/c-biancheng/c-t
 
 ## 15.7
 强引用和弱引用存在的意义是：方便插件式开发和框架式开发。例如，这个框架如果依赖某个用户提供的功能（方法），那么将这个功能声明为弱引用，然后对框架进行连接，也是可以链接通过的。然后再将框架和用户模块结合编译，就可以完成整个框架了。
+
+# 15.9
+静态链接库里保存着各种方法的定义，`.h`文件保存着这些方法的声明。
+
+# 15.10
+使用vs code开发的时候，系统路径是在.vscode/c_cpp_properties.json里的`includePath`属性里定义的。
+
+# 15.12
+
+# static 修饰全局变量
+使用`build fileDir c`

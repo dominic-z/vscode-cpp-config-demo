@@ -15,7 +15,7 @@
             "environment": [],
             "externalConsole": false,
             "MIMode": "lldb",
-            "preLaunchTask": "build single c",// 依赖哪个task
+            "preLaunchTask": "build single c++",// 依赖哪个task
             // "logging": {
             //     "trace": true,
             //     "traceResponse": true,

@@ -4,13 +4,14 @@ const int INPUT_SIZE = 20;
 const int DAILY_EXPENSE = 8000;
 const int CASH_DEPOSIT = 2000;
 
-const float MID_TERM_RATIO = 0.5;
+const float MID_TERM_RATIO = 0.4;
 const float MID_TERM_DOMESTIC = 0.8;
-const float MID_TERM_OUTBOUNDS = 0.3;
+// const float MID_TERM_OUTBOUNDS = 0.3;
 
-const float LONG_TERM_RATIO = 0.5;
+const float LONG_TERM_RATIO = 0.6
+;
 const float LONG_TERM_DOMESTIC = 0.7;
-const float LONG_TERM_OUTBOUNDS = 0.3;
+// const float LONG_TERM_OUTBOUNDS = 0.3;
 
 float get_income()
 {

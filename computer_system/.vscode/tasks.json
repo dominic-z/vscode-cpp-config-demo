@@ -1,0 +1,170 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "mkdir output dir", // 创建输出文件夹，把输出统一到一个文件夹下面
+            "type": "shell",
+            "command": "mkdir",
+            "args": [
+                "-p",
+                "${workspaceFolder}/out/${relativeFile}/" // 输出到指定文件夹
+            ]
+        },
+        {
+            "label": "build single c++", // build单一的c++文件
+            "type": "shell",
+            "command": "g++",
+            "dependsOn": "mkdir output dir",
+            "args": [
+                "${file}",
+                "-std=c++17",
+                "-g",
+                "-Wall",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out" // 输出到指定文件夹
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "echo": true,
+                "focus": false,
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "build and run single c++", // build and run单一的c++文件
+            "type": "shell",
+            "dependsOn": "build single c++", // 代表着执行该task之前哟啊执行build single c++
+            "command": "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out",
+            "presentation": {
+                "focus": true
+            },
+            "group": "test"
+        },
+        {
+            "label": "run single c++", // 只run不build
+            "type": "shell",
+            "command": "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out",
+            "presentation": {
+                "focus": true
+            },
+            "group": "test"
+        },
+        {
+            "label": "build fileDir c++", // build本文件夹下的全部c++文件
+            "type": "shell",
+            "command": "g++",
+            "dependsOn": "mkdir output dir",
+            "args": [
+                "${fileDirname}/*.cpp",
+                "-std=c++17",
+                "-g",
+                "-Wall",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "echo": true,
+                "focus": false,
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": "$gcc"
+        },
+
+        {
+            "label": "build all c++", // build全部c++文件
+            "type": "shell",
+            "command": "g++",
+            "dependsOn": "mkdir output dir",
+            "args": [
+                "${workspaceFolder}/src/**/*.cpp",
+                "-std=c++17",
+                "-g",
+                "-Wall",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "echo": true,
+                "focus": false,
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": "$gcc"
+        },
+        // 以下为c文件相关的task
+        {
+            "label": "build single c", // build单一的c文件
+            "type": "shell",
+            "command": "gcc",
+            "dependsOn": "mkdir output dir",
+            "args": [
+                "${file}",
+                "-g",
+                "-Wall",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out" // 输出到指定文件夹
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "echo": true,
+                "focus": false,
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "build and run single c", // build and run单一的c文件
+            "type": "shell",
+            "dependsOn": "build single c", 
+            "command": "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out",
+            "presentation": {
+                "focus": true
+            },
+            "group": "test"
+        },
+        {
+            "label": "build fileDir c", // build本文件夹下的全部c++文件
+            "type": "shell",
+            "command": "gcc",
+            "dependsOn": "mkdir output dir",
+            "args": [
+                "${fileDirname}/*.c",
+                "-g",
+                "-Wall",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "echo": true,
+                "focus": false,
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": "$gcc"
+        }
+    ]
+}

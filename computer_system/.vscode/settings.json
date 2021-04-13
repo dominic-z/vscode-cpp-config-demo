@@ -61,6 +61,10 @@
         "utility": "cpp",
         "vector": "cpp",
         "map": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "csapp.h": "c",
+        "netdb.h": "c",
+        "socket.h": "c",
+        "mman.h": "c"
     }
 }

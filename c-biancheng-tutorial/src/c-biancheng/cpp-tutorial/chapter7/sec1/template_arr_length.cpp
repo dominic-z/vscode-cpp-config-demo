@@ -7,7 +7,7 @@ int get_ptr_length(int * arr){
     std::cout<<"ptr:"<<sizeof(*arr)<<std::endl;
     return length;
 }
-
+// 结合模板和引用，可以保证即使是方法调用，arr不会被转化为指针
 template<class T> int length(T& arr)
 {
     // cout << sizeof(arr[0]) << endl;

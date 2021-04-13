@@ -84,6 +84,32 @@
         },
 
         {
+            "label": "recursive build fileDir c++", // build本文件夹下的全部c++文件
+            "type": "shell",
+            "command": "g++",
+            "dependsOn": "mkdir output dir",
+            "args": [
+                "${fileDirname}/**/*.cpp",
+                "-std=c++17",
+                "-g",
+                "-Wall",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "echo": true,
+                "focus": false,
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": "$gcc"
+        },
+
+        {
             "label": "build all c++", // build全部c++文件
             "type": "shell",
             "command": "g++",

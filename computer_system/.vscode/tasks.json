@@ -190,5 +190,30 @@
             },
             "problemMatcher": "$gcc"
         },
+        {
+            "label": "build with include", // 用于把include文件和src文件搞进来
+            "type": "shell",
+            "command": "gcc",
+            "dependsOn": "mkdir output dir",
+            "args": [
+                "${fileDirname}/../src/*.c",
+                "${file}",
+                "-g",
+                "-Wall",
+                "-lm",
+                "-o",
+                "${workspaceFolder}/out/${relativeFile}/${fileBasenameNoExtension}.out"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent",
+                "panel": "shared",
+                "echo": true,
+                "focus": false,
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "problemMatcher": "$gcc"
+        },
     ]
 }
